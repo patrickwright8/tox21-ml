@@ -3,7 +3,10 @@ import numpy as np
 import os
 import pickle as pkl
 
-root = 'C:/projects/tox21-ml'
+from rdkit.Chem.MolStandardize import rdMolStandardize
+from rdkit import Chem
+
+root = 'C:/projects/tox21-ml' # Eventually change to os.getcwd()
 datafolder = root + '/data/'
 filenames = os.listdir(datafolder)
 filenames = [i for i in filenames if i.count('.smiles')>0]
@@ -31,45 +34,29 @@ def merge_and_drop_duplicates(df_list):
             merged = merged.drop_duplicates()
     return merged
 
-# dfs = dfs[:2]
+df = merge_and_drop_duplicates(dfs) # Merges assay results; drops duplicates
+df = df.reset_index(drop=True) # Resets index
 
-# Test!
-df = merge_and_drop_duplicates(dfs)
+# Still need to clean smiles by removing salts, extra molecule fragments
+smiles = list(df.iloc[:,0])
+largest_Fragment = rdMolStandardize.LargestFragmentChooser()
+for count, sm in enumerate(smiles):
+    try:
+        m = Chem.MolFromSmiles(sm)
+    except: 
+        pass
+    if m == None:
+        smiles[count] = np.nan
+        continue
+    largest_mol = largest_Fragment.choose(m)
+    new_sm = Chem.MolToSmiles(largest_mol)
+    smiles[count] = new_sm
+smiles = pd.Series(smiles, name='Smiles')
+df.iloc[:,0] = smiles
+df = df.dropna(subset='Smiles').reset_index(drop=True)
 
 savename = datafolder + 'combined_tox21.pkl'
 with open(savename, 'wb') as w:
     pkl.dump(df, w)
 
-# %% PD tests
-
-import pandas as pd
-
-
-# create some sample dataframes
-df1 = pd.DataFrame({'smiles': ['C1=CC=CC=C1', 'CC(=O)O'], 'value1': [1, 2]})
-df2 = pd.DataFrame({'smiles': ['C1=CC=CC=C1', 'CCN'], 'value2': [3, 4]})
-df3 = pd.DataFrame({'smiles': ['CCN', 'CC(=O)O'], 'value3': [5, 6]})
-
-merged_df = pd.DataFrame({'smiles': []})  # create an empty dataframe with only the 'smiles' column
-
-dfs = [df1, df2, df3]
-
-for df in dfs:
-    merged_df = pd.merge(merged_df, df, on='smiles', how='outer')  
-
-
-# %% 
-# merge dataframes based on 'smiles' column
-merged_df = df1.merge(df2, on='smiles', how='outer') \
-              .merge(df3, on='smiles', how='outer')
-
-print(merged_df)
-
-
-
-
-
-
-
-
-
+print('\nSaved cleaned, merged DataFrame to file!\n')
