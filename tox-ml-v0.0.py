@@ -1,9 +1,5 @@
 # %% Imports
 import chemprop
-import pandas as pd
-import numpy as np 
-import pickle as pkl
-import os
 
 from rdkit import Chem
 from rdkit.Chem.Draw import IPythonConsole #Needed to show molecules
@@ -23,8 +19,8 @@ arguments = [
         'nr-er-lbd', 'nr-er', 'nr-ppar-gamma', 'sr-are', 'sr-atad5', 'sr-hse',\
             'sr-mmp', 'sr-p53',]
 
-extra_args = ['--num_iters', '20', # Only for hyperopt
-    '--search_parameter_keywords', 'basic', # Only for hyperopt
+extra_args = ['--num_iters', '20', 
+    '--search_parameter_keywords', 'basic', 
     '--config_save_path', 'C:/projects/chemprop/tox21-ckpts'
 ]
 
