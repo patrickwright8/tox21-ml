@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import os
-import pickle as pkl
 
 from rdkit.Chem.MolStandardize import rdMolStandardize
 from rdkit import Chem
@@ -53,10 +52,9 @@ for count, sm in enumerate(smiles):
     smiles[count] = new_sm
 smiles = pd.Series(smiles, name='Smiles')
 df.iloc[:,0] = smiles
-df = df.dropna(subset='Smiles').reset_index(drop=True)
+df = df.dropna(subset='Smiles').drop_duplicates().reset_index(drop=True)
 
-savename = datafolder + 'combined_tox21.pkl'
-with open(savename, 'wb') as w:
-    pkl.dump(df, w)
+savename = datafolder + 'combined_tox21.csv'
+df.to_csv(savename, index=False)
 
-print('\nSaved cleaned, merged DataFrame to file!\n')
+print('\nSuccessfully exported to CSV!\n')
