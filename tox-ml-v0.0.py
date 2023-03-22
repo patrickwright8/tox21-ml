@@ -1,4 +1,4 @@
-# %% Imports, I/O
+# %% Imports
 import chemprop
 import pandas as pd
 import numpy as np 
@@ -9,22 +9,15 @@ from rdkit import Chem
 from rdkit.Chem.Draw import IPythonConsole #Needed to show molecules
 IPythonConsole.molSize = (350, 350)   # Change image size
 IPythonConsole.ipython_useSVG = True  # Change output to SVG
-
-root = 'C:/projects/tox21-ml' # Eventually change to os.getcwd()
-datafolder = root + '/data/'
-datapath = datafolder + 'combined_tox21.pkl'
-
-with open(datapath, 'rb') as r:
-    df = pkl.load(r)
     
 # %% Hyperparameter optimization
 
 arguments = [
-    '--data_path', 'C:/projects/chemprop/datasets/train.csv',
-    '--dataset_type', 'regression',
-    '--save_dir', 'ckpts',
+    '--data_path', 'C:/projects/tox21-ml/data/combined_tox21.csv',
+    '--dataset_type', 'classification',
+    '--save_dir', 'tox21-ckpts',
     '--gpu', '0',
-    '--batch_size', '4',
+    '--batch_size', '50',
     '--smiles_columns', 'Smiles',
     '--target_columns', 'nr-ahr', 'nr-ar-lbd', 'nr-ar', 'nr-aromatase',\
         'nr-er-lbd', 'nr-er', 'nr-ppar-gamma', 'sr-are', 'sr-atad5', 'sr-hse',\
@@ -35,7 +28,18 @@ extra_args = ['--num_iters', '20', # Only for hyperopt
     '--config_save_path', 'C:/projects/chemprop/tox21-ckpts'
 ]
 
+### Notes:
+    # Suppose 1 iteration (30 epochs) takes ~30 minutes. Then for
+    # just 20 iterations, bayesian optimization would take 
+    # ~10 hours on this dataset! 
+    # Best to run overnight or over the weekend.
+    # Still - worth it to squeeze out every last bit of performance.
+
 hyperopt_args = arguments + extra_args
 
 hyperopt_args = chemprop.args.HyperoptArgs().parse_args(hyperopt_args)
 chemprop.hyperparameter_optimization.hyperopt(hyperopt_args)
+
+# %% Train the model using the winning parameters
+
+# Coming soon!
