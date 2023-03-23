@@ -11,7 +11,7 @@ IPythonConsole.ipython_useSVG = True  # Change output to SVG
 arguments = [
     '--data_path', 'C:/projects/tox21-ml/data/combined_tox21.csv',
     '--dataset_type', 'classification',
-    '--save_dir', 'tox21-ckpts',
+    '--save_dir', 'C:/projects/tox21-ml/ckpts',
     '--gpu', '0',
     '--batch_size', '50',
     '--smiles_columns', 'Smiles',
