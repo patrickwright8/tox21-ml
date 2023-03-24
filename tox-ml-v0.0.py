@@ -21,7 +21,7 @@ arguments = [
 
 extra_args = ['--num_iters', '20', 
     '--search_parameter_keywords', 'basic', 
-    '--config_save_path', 'C:/projects/chemprop/ckpts'
+    '--config_save_path', 'C:/projects/tox21-ml/ckpts'
 ]
 
 ### Notes:
