@@ -132,3 +132,4 @@ dmypy.json
 ckpts/
 *.zip
 old_ckpts/
+old_ckpts_0-9/
