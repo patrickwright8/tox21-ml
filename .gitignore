@@ -3,8 +3,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-ckpts/
-
 # C extensions
 *.so
 
@@ -129,4 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-ckpts_backup.zip
+
+# My additions:
+ckpts/
+*.zip
+old_ckpts/
