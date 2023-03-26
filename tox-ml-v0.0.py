@@ -22,15 +22,7 @@ arguments = [
 extra_args = ['--num_iters', '100', 
     '--search_parameter_keywords', 'basic',
     '--config_save_path', 'C:/projects/tox21-ml/ckpts',
-
 ]
-
-### Notes:
-    # Suppose 1 iteration (30 epochs) takes ~30 minutes. Then for
-    # just 20 iterations, bayesian optimization would take 
-    # ~10 hours on this dataset! 
-    # Best to run overnight or over the weekend.
-    # Still - worth it to squeeze out every last bit of performance.
 
 hyperopt_args = arguments + extra_args
 
