@@ -19,24 +19,10 @@ arguments = [
         'nr-er-lbd', 'nr-er', 'nr-ppar-gamma', 'sr-are', 'sr-atad5', 'sr-hse',\
             'sr-mmp', 'sr-p53',]
 
-extra_args = ['--num_iters', '114', 
+extra_args = ['--num_iters', '100', 
     '--search_parameter_keywords', 'basic',
     '--config_save_path', 'C:/projects/tox21-ml/ckpts',
-    '--manual_trial_dirs', 'C:/projects/tox21-ml/old_ckpts/trial_seed_0',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_1',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_2',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_3',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_4',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_5',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_6',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_7',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_8',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_9',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_10',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_11',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_12',\
-    'C:/projects/tox21-ml/old_ckpts/trial_seed_13',\
-    '--startup_random_iters', '14'
+
 ]
 
 ### Notes:
