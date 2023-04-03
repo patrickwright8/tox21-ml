@@ -14,9 +14,9 @@ IPythonConsole.ipython_useSVG = True  # Change output to SVG
     # to "float" or "np.float64"
 
 arguments = [
-    '--data_path', 'C:/projects/tox21-ml/data/combined_tox21.csv',
+    '--data_path', 'C:/Users/ptw80/projects/tox21-ml/data/combined_tox21.csv',
     '--dataset_type', 'classification',
-    '--save_dir', 'C:/projects/tox21-ml/ckpts',
+    '--save_dir', 'C:/Users/ptw80/projects/tox21-ml/ckpts',
     '--gpu', '0',
     '--batch_size', '50',
     '--num_folds', '10',
@@ -28,7 +28,7 @@ arguments = [
 
 extra_args = ['--num_iters', '100', 
     '--search_parameter_keywords', 'basic',
-    '--config_save_path', 'C:/projects/tox21-ml/ckpts',
+    '--config_save_path', 'C:/Users/ptw80/projects/tox21-ml/ckpts',
 ]
 
 hyperopt_args = arguments + extra_args
