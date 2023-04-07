@@ -22,7 +22,7 @@ arguments = [
     '--num_folds', '3',
     '--features_generator', 'rdkit_2d_normalized',
     '--no_features_scaling',
-    '--split_type', 'scaffold_balanced',
+    '--split_type', 'random',
     '--smiles_columns', 'Smiles',
     '--target_columns', 'nr-ahr', 'nr-ar-lbd', 'nr-ar', 'nr-aromatase',\
         'nr-er-lbd', 'nr-er', 'nr-ppar-gamma', 'sr-are', 'sr-atad5', 'sr-hse',\
