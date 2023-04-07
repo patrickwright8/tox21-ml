@@ -16,7 +16,7 @@ IPythonConsole.ipython_useSVG = True  # Change output to SVG
 arguments = [
     '--data_path', 'C:/Users/ptw80/projects/tox21-ml/data/combined_tox21.csv',
     '--dataset_type', 'classification',
-    '--save_dir', 'C:/Users/ptw80/projects/tox21-ml/ckpts',
+    '--save_dir', 'C:/Users/ptw80/projects/tox21-ml/ckpts_with_features',
     '--gpu', '0',
     '--batch_size', '50',
     '--num_folds', '3',
@@ -30,7 +30,7 @@ arguments = [
 
 extra_args = ['--num_iters', '500', 
     '--search_parameter_keywords', 'basic',
-    '--config_save_path', 'C:/Users/ptw80/projects/tox21-ml/ckpts/best.json',
+    '--config_save_path', 'C:/Users/ptw80/projects/tox21-ml/ckpts_with_features/best.json',
 ]
 
 hyperopt_args = arguments + extra_args
@@ -46,7 +46,7 @@ arguments = [
     '--save_dir', 'C:/Users/ptw80/projects/tox21-ml/ckpts/random_results',
     '--num_folds', '10',
     '--gpu', '0',
-    '--batch_size', '50',
+    '--batch_size', '20',
     '--depth', '3',
     '--dropout', '.3',
     '--ffn_num_layers', '3',
