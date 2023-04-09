@@ -1,10 +1,16 @@
 # %% Imports
 import chemprop
+import os
 
 from rdkit import Chem
 from rdkit.Chem.Draw import IPythonConsole #Needed to show molecules
 IPythonConsole.molSize = (350, 350)   # Change image size
 IPythonConsole.ipython_useSVG = True  # Change output to SVG
+
+
+root = os.path.join(os.getcwd(), 'projects\\tox21-ml')
+datapath = os.path.join(root, 'data\\combined_tox21.csv')
+savedir = os.path.join(root, 'ckpts')
     
 # %% Hyperparameter optimization
 
@@ -14,9 +20,9 @@ IPythonConsole.ipython_useSVG = True  # Change output to SVG
     # to "float" or "np.float64"
 
 arguments = [
-    '--data_path', 'C:/projects/tox21-ml/data/combined_tox21.csv',
+    '--data_path', datapath,
     '--dataset_type', 'classification',
-    '--save_dir', 'C:/projects/tox21-ml/ckpts',
+    '--save_dir', savedir,
     '--gpu', '0',
     '--batch_size', '50',
     '--num_folds', '10',
@@ -28,7 +34,7 @@ arguments = [
 
 extra_args = ['--num_iters', '100', 
     '--search_parameter_keywords', 'basic',
-    '--config_save_path', 'C:/projects/tox21-ml/ckpts',
+    '--config_save_path', savedir,
 ]
 
 hyperopt_args = arguments + extra_args
