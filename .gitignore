@@ -128,9 +128,14 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# My additions:
-ckpts/
+### My additions:
+
+# Global:
 *.zip
-old_ckpts/
-old_ckpts_0-9/
-data/tox21.csv
+
+# Files:
+
+
+# Folders:
+ckpts/
+hyperopt/trial_seed_295/
