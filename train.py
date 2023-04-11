@@ -10,9 +10,10 @@ IPythonConsole.ipython_useSVG = True  # Change output to SVG
 
 root = os.path.join(os.getcwd(), 'projects\\tox21-ml')
 datapath = os.path.join(root, 'data\\combined_tox21.csv')
-savedir = os.path.join(root, 'ckpts')
+savedir = os.path.join(root, 'train_ckpts')
+configpath = os.path.join(root, 'hyperopt\\best.json')
     
-# %% Hyperparameter optimization
+# %% Perform 10-fold CV on single model
 
 # NOTE:
     # For scafold split to work, you must change "np.float" in 
@@ -26,22 +27,38 @@ arguments = [
     '--gpu', '0',
     '--batch_size', '50',
     '--num_folds', '10',
-    '--split_type', 'scaffold_balanced',
+    '--features_generator', 'rdkit_2d_normalized',
+    '--no_features_scaling',
+    '--split_type', 'random',
+    '--config_path', configpath,
     '--smiles_columns', 'Smiles',
     '--target_columns', 'nr-ahr', 'nr-ar-lbd', 'nr-ar', 'nr-aromatase',\
         'nr-er-lbd', 'nr-er', 'nr-ppar-gamma', 'sr-are', 'sr-atad5', 'sr-hse',\
-            'sr-mmp', 'sr-p53',]
-
-extra_args = ['--num_iters', '100', 
-    '--search_parameter_keywords', 'basic',
-    '--config_save_path', savedir,
+            'sr-mmp', 'sr-p53',
 ]
 
-hyperopt_args = arguments + extra_args
+args = chemprop.args.TrainArgs().parse_args(arguments)
+mean_score, std_score = chemprop.train.cross_validate(args=args, train_func=chemprop.train.run_training)
 
-hyperopt_args = chemprop.args.HyperoptArgs().parse_args(hyperopt_args)
-chemprop.hyperparameter_optimization.hyperopt(hyperopt_args)
+# %% Run 10-fold CV on an ensemble of 10 models using the winning hyperparameters
 
-# %% Train the model using the winning parameters
+arguments = [
+    '--data_path', datapath,
+    '--dataset_type', 'classification',
+    '--save_dir', savedir,
+    '--gpu', '0',
+    '--batch_size', '50',
+    '--num_folds', '10',
+    '--ensemble_size', '10'
+    '--features_generator', 'rdkit_2d_normalized',
+    '--no_features_scaling',
+    '--split_type', 'random',
+    '--config_path', configpath,
+    '--smiles_columns', 'Smiles',
+    '--target_columns', 'nr-ahr', 'nr-ar-lbd', 'nr-ar', 'nr-aromatase',\
+        'nr-er-lbd', 'nr-er', 'nr-ppar-gamma', 'sr-are', 'sr-atad5', 'sr-hse',\
+            'sr-mmp', 'sr-p53',
+]
 
-# Coming soon!
+args = chemprop.args.TrainArgs().parse_args(arguments)
+mean_score, std_score = chemprop.train.cross_validate(args=args, train_func=chemprop.train.run_training)
