@@ -1,10 +1,16 @@
 # %% Imports
 import chemprop
+import os
 
 from rdkit import Chem
 from rdkit.Chem.Draw import IPythonConsole #Needed to show molecules
 IPythonConsole.molSize = (350, 350)   # Change image size
 IPythonConsole.ipython_useSVG = True  # Change output to SVG
+
+root = os.path.join(os.getcwd(), 'projects\\tox21-ml')
+datapath = os.path.join(root, 'data\\combined_tox21.csv')
+savedir = os.path.join(root, 'hyperopt_ckpts')
+hyperparam_savedir = os.path.join(savedir, 'best.json')
     
 # %% Hyperparameter optimization
 
@@ -14,9 +20,9 @@ IPythonConsole.ipython_useSVG = True  # Change output to SVG
     # to "float" or "np.float64"
 
 arguments = [
-    '--data_path', 'C:/Users/ptw80/projects/tox21-ml/data/combined_tox21.csv',
+    '--data_path', datapath,
     '--dataset_type', 'classification',
-    '--save_dir', 'C:/Users/ptw80/projects/tox21-ml/ckpts_with_features',
+    '--save_dir', savedir,
     '--gpu', '0',
     '--batch_size', '50',
     '--num_folds', '3',
@@ -30,31 +36,10 @@ arguments = [
 
 extra_args = ['--num_iters', '500', 
     '--search_parameter_keywords', 'basic',
-    '--config_save_path', 'C:/Users/ptw80/projects/tox21-ml/ckpts_with_features/best.json',
+    '--config_save_path', hyperparam_savedir,
 ]
 
 hyperopt_args = arguments + extra_args
 
 hyperopt_args = chemprop.args.HyperoptArgs().parse_args(hyperopt_args)
 chemprop.hyperparameter_optimization.hyperopt(hyperopt_args)
-
-# %% Train the model using the winning parameters
-
-arguments = [
-    '--data_path', 'C:/Users/ptw80/projects/tox21-ml/data/combined_tox21.csv',
-    '--dataset_type', 'classification',
-    '--save_dir', 'C:/Users/ptw80/projects/tox21-ml/ckpts/random_results',
-    '--num_folds', '10',
-    '--gpu', '0',
-    '--batch_size', '20',
-    '--depth', '3',
-    '--dropout', '.3',
-    '--ffn_num_layers', '3',
-    '--hidden_size', '900',
-    '--smiles_columns', 'Smiles',
-    '--target_columns', 'nr-ahr', 'nr-ar-lbd', 'nr-ar', 'nr-aromatase',\
-        'nr-er-lbd', 'nr-er', 'nr-ppar-gamma', 'sr-are', 'sr-atad5', 'sr-hse',\
-            'sr-mmp', 'sr-p53']
-
-args = chemprop.args.TrainArgs().parse_args(arguments)
-mean_score, std_score = chemprop.train.cross_validate(args=args, train_func=chemprop.train.run_training)
