@@ -42,10 +42,12 @@ mean_score, std_score = chemprop.train.cross_validate(args=args, train_func=chem
 
 # %% Run 10-fold CV on an ensemble of 10 models using the winning hyperparameters
 
+ensemble_savedir = os.path.join(root, 'ensemble_ckpts')
+
 arguments = [
     '--data_path', datapath,
     '--dataset_type', 'classification',
-    '--save_dir', savedir,
+    '--save_dir', ensemble_savedir,
     '--gpu', '0',
     '--batch_size', '50',
     '--num_folds', '10',
