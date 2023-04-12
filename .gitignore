@@ -134,7 +134,7 @@ dmypy.json
 *.zip
 
 # Files:
-
+!10-fold_CV/quiet.log
 
 # Folders:
 ckpts/
