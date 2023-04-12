@@ -139,3 +139,5 @@ dmypy.json
 # Folders:
 ckpts/
 hyperopt/trial_seed_295/
+ensemble_ckpts/*/
+train_ckpts/*/

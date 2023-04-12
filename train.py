@@ -51,7 +51,7 @@ arguments = [
     '--gpu', '0',
     '--batch_size', '50',
     '--num_folds', '10',
-    '--ensemble_size', '10'
+    '--ensemble_size', '10',
     '--features_generator', 'rdkit_2d_normalized',
     '--no_features_scaling',
     '--split_type', 'random',
