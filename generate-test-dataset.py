@@ -10,3 +10,11 @@ IPythonConsole.ipython_useSVG = True  # Change output to SVG
 
 root = os.getcwd() 
 datapath = os.path.join(root, 'projects\\tox21-ml\\data\\test_data\\tox21_10k_challenge_test.sdf')
+
+smiles = []
+data = Chem.SDMolSupplier(datapath)
+for mol in data:
+    if mol == None:
+        continue
+    sm = Chem.MolToSmiles(mol)
+    smiles.append(sm)
