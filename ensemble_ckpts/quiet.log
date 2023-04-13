@@ -1,0 +1,57 @@
+Fold 0
+Model 0 best validation auc = 0.877005 on epoch 22
+Model 0 provided with no test set, no metric evaluation will be performed.
+Model 1 best validation auc = 0.876806 on epoch 21
+Model 1 provided with no test set, no metric evaluation will be performed.
+Model 2 best validation auc = 0.871214 on epoch 25
+Model 2 provided with no test set, no metric evaluation will be performed.
+Ensemble test auc = nan
+Fold 1
+Model 0 best validation auc = 0.890959 on epoch 27
+Model 0 provided with no test set, no metric evaluation will be performed.
+Model 1 best validation auc = 0.889875 on epoch 27
+Model 1 provided with no test set, no metric evaluation will be performed.
+Model 2 best validation auc = 0.888433 on epoch 24
+Model 2 provided with no test set, no metric evaluation will be performed.
+Ensemble test auc = nan
+Fold 2
+Model 0 best validation auc = 0.892387 on epoch 15
+Model 0 provided with no test set, no metric evaluation will be performed.
+Model 1 best validation auc = 0.887376 on epoch 12
+Model 1 provided with no test set, no metric evaluation will be performed.
+Model 2 best validation auc = 0.891467 on epoch 18
+Model 2 provided with no test set, no metric evaluation will be performed.
+Ensemble test auc = nan
+Fold 3
+Model 0 best validation auc = 0.887474 on epoch 16
+Model 0 provided with no test set, no metric evaluation will be performed.
+Model 1 best validation auc = 0.893801 on epoch 24
+Model 1 provided with no test set, no metric evaluation will be performed.
+Model 2 best validation auc = 0.888599 on epoch 29
+Model 2 provided with no test set, no metric evaluation will be performed.
+Ensemble test auc = nan
+Fold 4
+Model 0 best validation auc = 0.894051 on epoch 29
+Model 0 provided with no test set, no metric evaluation will be performed.
+Model 1 best validation auc = 0.895027 on epoch 27
+Model 1 provided with no test set, no metric evaluation will be performed.
+Model 2 best validation auc = 0.891489 on epoch 28
+Model 2 provided with no test set, no metric evaluation will be performed.
+Ensemble test auc = nan
+Fold 5
+Model 0 best validation auc = 0.883194 on epoch 23
+Model 0 provided with no test set, no metric evaluation will be performed.
+Model 1 best validation auc = 0.883890 on epoch 22
+Model 1 provided with no test set, no metric evaluation will be performed.
+Model 2 best validation auc = 0.887487 on epoch 13
+Model 2 provided with no test set, no metric evaluation will be performed.
+Ensemble test auc = nan
+6-fold cross validation
+	Seed 0 ==> test auc = nan
+	Seed 1 ==> test auc = nan
+	Seed 2 ==> test auc = nan
+	Seed 3 ==> test auc = nan
+	Seed 4 ==> test auc = nan
+	Seed 5 ==> test auc = nan
+Overall test auc = nan +/- nan
+Elapsed time = 0:50:50
