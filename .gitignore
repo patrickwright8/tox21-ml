@@ -135,6 +135,7 @@ dmypy.json
 
 # Files:
 !10-fold_CV/quiet.log
+!ensemble_ckpts/quiet.log
 
 # Folders:
 ckpts/
