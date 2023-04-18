@@ -9,7 +9,7 @@ IPythonConsole.ipython_useSVG = True  # Change output to SVG
 
 root = os.path.join(os.getcwd(), 'projects\\tox21-ml')
 datapath = os.path.join(root, 'data\\test_data\\combined_test_set.csv')
-ensemble_savedir = os.path.join(root, 'ensemble_ckpts')
+ensemble_savedir = os.path.join(root, 'ensemble_models')
 prediction_path = os.path.join(root, 'predict\\predictions.csv')
 
 # %% Run ensemble predictions on test set
