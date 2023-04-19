@@ -27,7 +27,7 @@ arguments = [
     '--features_generator', 'rdkit_2d_normalized',
     '--no_features_scaling',
     '--split_type', 'random',
-    '--split_size', '.9', '.1', '0',
+    '--split_size', '.95', '.05', '0',
     '--separate_test_path', test_set_path,
     '--config_path', configpath,
     '--smiles_columns', 'Smiles',
