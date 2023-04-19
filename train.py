@@ -28,7 +28,7 @@ arguments = [
     '--no_features_scaling',
     '--split_type', 'random',
     '--split_size', '.9', '.1', '0',
-    '--separate_test_set', test_set_path,
+    '--separate_test_path', test_set_path,
     '--config_path', configpath,
     '--smiles_columns', 'Smiles',
     '--target_columns', 'nr-ahr', 'nr-ar-lbd', 'nr-ar', 'nr-aromatase',\
