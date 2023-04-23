@@ -35,9 +35,6 @@ preds = chemprop.train.make_predictions(args=args)
 
 # %% Evaluates predictions by comparing to true values
 
-from sklearn.metrics import average_precision_score, precision_recall_curve
-from sklearn.metrics import auc, plot_precision_recall_curve
-
 root = os.getcwd()
 prediction_path = os.path.join(root, 'ensemble_preds\\predictions.csv')
 formatted_datapath = os.path.join(root, 'data\\test_data\\formatted_combined_test_set.csv')
