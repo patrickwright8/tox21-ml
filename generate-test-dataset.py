@@ -108,16 +108,18 @@ eval_set = eval_set.drop(columns='Sample ID')
 # %% Combine dataframes into one test set! Export as CSV
 
 combined_test_set = pd.concat([test_set, eval_set]).reset_index(drop=True)
-combined_test_set = combined_test_set.drop_duplicates(subset=['smiles'])
+combined_test_set = combined_test_set.drop_duplicates(subset=['Smiles'])
 
 # Generates set of all smiles present in training set
 train_set = set(pd.read_csv(train_set_path).iloc[:,0])
 
 # Removes rows in the test set containing smiles present in the training set
-test_set_filtered = combined_test_set[~combined_test_set['smiles'].isin(train_set)]
+test_set_filtered = combined_test_set[~combined_test_set['Smiles'].isin(train_set)]
 
 # Shuffles test set and resets index
 final_test_set = test_set_filtered.sample(frac=1).reset_index(drop=True)
 
 # Exports to CSV
 final_test_set.to_csv(export_path, index=False)
+
+# %%
