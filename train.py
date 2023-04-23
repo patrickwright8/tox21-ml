@@ -11,7 +11,7 @@ IPythonConsole.ipython_useSVG = True  # Change output to SVG
 root = os.getcwd()
 datapath = os.path.join(root, 'data\\combined_tox21.csv')
 configpath = os.path.join(root, 'hyperopt_results\\best.json')
-ensemble_savedir = os.path.join(root, 'ensemble_ckpts_with_testing')
+ensemble_savedir = os.path.join(root, 'ensemble_ckpts')
 test_set_path = os.path.join(root, 'data\\test_data\\formatted_combined_test_set.csv')
     
 # %% Run 5-fold CV on an ensemble of 3 models using the winning hyperparameters
