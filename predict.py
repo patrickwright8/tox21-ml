@@ -60,7 +60,7 @@ evaluate_predictions(
     targets=targets_as_list,
     num_tasks=12,
     dataset_type='classification',
-    metrics=['prc-auc']
+    metrics=['roc-auc']
 )
 '''
 # %%
