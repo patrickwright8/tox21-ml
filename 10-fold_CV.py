@@ -11,7 +11,7 @@ IPythonConsole.ipython_useSVG = True  # Change output to SVG
 root = os.getcwd()
 datapath = os.path.join(root, 'data\\combined_tox21.csv')
 savedir = os.path.join(root, '10-fold_CV_90_split')
-configpath = os.path.join(root, 'hyperopt\\best.json')
+configpath = os.path.join(root, 'hyperopt_results\\best.json')
     
 # %% Perform 10-fold CV on ensemble
 
@@ -31,7 +31,7 @@ arguments = [
     '--features_generator', 'rdkit_2d_normalized',
     '--no_features_scaling',
     '--split_type', 'random',
-    '--split_sizes', '.9 .05 .05',
+    '--split_sizes', '.9', '.05', '.05',
     '--config_path', configpath,
     '--smiles_columns', 'Smiles',
     '--target_columns', 'nr-ahr', 'nr-ar-lbd', 'nr-ar', 'nr-aromatase',\
