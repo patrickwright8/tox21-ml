@@ -30,7 +30,7 @@ arguments = [
     '--separate_test_path', test_set_path,
     '--depth', '6',
     '--dropout', '.15',
-    '-ffn_num_layers', '2',
+    '--ffn_num_layers', '2',
     '--ffn_hidden_size', '700',
     '--hidden_size', '700',
     '--smiles_columns', 'Smiles',
