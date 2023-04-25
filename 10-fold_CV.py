@@ -10,7 +10,7 @@ IPythonConsole.ipython_useSVG = True  # Change output to SVG
 
 root = os.getcwd()
 datapath = os.path.join(root, 'data\\combined_tox21.csv')
-savedir = os.path.join(root, '10-fold_CV_90_split')
+savedir = os.path.join(root, '10-fold_CV_90_split_20_ens')
 configpath = os.path.join(root, 'hyperopt_results\\best.json')
     
 # %% Perform 10-fold CV on ensemble
