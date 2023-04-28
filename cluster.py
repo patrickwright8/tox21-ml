@@ -31,7 +31,7 @@ df_vecs = df.iloc[:,1:]
 
 # %% Trains UMAP on molecular vectors, then plots results
 
-reducer = umap.UMAP(n_neighbors=5, min_dist=.05)
+reducer = umap.UMAP(n_neighbors=15, min_dist=.05)
 
 # Output of mol2vec is already "scaled", so no further input scaling is needed
 embedding = reducer.fit_transform(df_vecs)
