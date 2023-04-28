@@ -7,8 +7,9 @@ from rdkit.Chem.Draw import IPythonConsole #Needed to show molecules
 IPythonConsole.molSize = (350, 350)   # Change image size
 IPythonConsole.ipython_useSVG = True  # Change output to SVG
 
-root = os.path.join(os.getcwd(), 'projects\\tox21-ml')
+root = os.getcwd()
 datapath = os.path.join(root, 'data\\combined_tox21.csv')
+test_path = os.path.join(root, 'data\\test_data\\eval_set.csv')
 savedir = os.path.join(root, 'hyperopt_ckpts')
 hyperparam_savedir = os.path.join(savedir, 'best.json')
     
@@ -28,13 +29,15 @@ arguments = [
     '--num_folds', '3',
     '--features_generator', 'rdkit_2d_normalized',
     '--no_features_scaling',
-    '--split_type', 'random',
+    '--split_type', 'scaffold_balanced',
+    '--split_size', '.9', '.1', '0',
+    '--separate_test_path', test_path,
     '--smiles_columns', 'Smiles',
     '--target_columns', 'nr-ahr', 'nr-ar-lbd', 'nr-ar', 'nr-aromatase',\
         'nr-er-lbd', 'nr-er', 'nr-ppar-gamma', 'sr-are', 'sr-atad5', 'sr-hse',\
             'sr-mmp', 'sr-p53',]
 
-extra_args = ['--num_iters', '500', 
+extra_args = ['--num_iters', '100', 
     '--search_parameter_keywords', 'basic',
     '--config_save_path', hyperparam_savedir,
 ]
