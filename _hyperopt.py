@@ -29,7 +29,7 @@ arguments = [
     '--num_folds', '3',
     '--features_generator', 'rdkit_2d_normalized',
     '--no_features_scaling',
-    '--split_type', 'scaffold_balanced',
+    '--split_type', 'random',
     '--split_size', '.9', '.1', '0',
     '--separate_test_path', test_path,
     '--smiles_columns', 'Smiles',
@@ -37,7 +37,7 @@ arguments = [
         'nr-er-lbd', 'nr-er', 'nr-ppar-gamma', 'sr-are', 'sr-atad5', 'sr-hse',\
             'sr-mmp', 'sr-p53',]
 
-extra_args = ['--num_iters', '100', 
+extra_args = ['--num_iters', '500', 
     '--search_parameter_keywords', 'basic',
     '--config_save_path', hyperparam_savedir,
 ]
