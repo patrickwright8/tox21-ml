@@ -139,6 +139,7 @@ dmypy.json
 !10-fold_CV_90_split/test_scores.csv
 !10-fold_CV_90_split_20_ens/quiet.log
 !10-fold_CV_90_split_20_ens/test_scores.csv
+mol2vec/model.pkl
 
 
 # Folders:
