@@ -6,3 +6,5 @@ As many as 30% of candidate pharmaceuticals in clinical trials cannot be commerc
 Performs hyperparameter optimization on the training set.
 ## clustering.py:
 Applies UMAP to visualize training, test, and evaluation sets in chemical space. The input CSV files for this consist of the training, test, and evaluation datasets converted to vectors by Mol2vec. 
+
+[1]: https://pubs.acs.org/doi/abs/10.1021/acs.jcim.9b00237
