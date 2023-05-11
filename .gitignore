@@ -134,19 +134,13 @@ dmypy.json
 *.zip
 
 # Files:
-!10-fold_CV/quiet.log
-!10-fold_CV_90_split/quiet.log
-!10-fold_CV_90_split/test_scores.csv
-!10-fold_CV_90_split_20_ens/quiet.log
-!10-fold_CV_90_split_20_ens/test_scores.csv
 mol2vec/model.pkl
 
 
 # Folders:
-ckpts/
-hyperopt_results/trial_seed_295/
-ensemble_ckpts/*/
-train_ckpts/*/
-ensemble_models/
-10-fold_CV_90_split/*/
-10-fold_CV_90_split_20_ens/*/
+eval_set_results/
+hyperopt_results/trial_seed_295
+train_set_cv/
+hyperopt_round_2/
+
+# Don't ignore:
